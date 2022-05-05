@@ -10,8 +10,7 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
  -->
 
 <?php
-// $name = ( isset($_GET['name']) ? $_GET['name'] : '');
-$name = 'gaddddd';
+$name = ( isset($_GET['name']) ? $_GET['name'] : '');
 $mail = ( isset($_GET['mail']) ? $_GET['mail'] : '');
 $age = ( isset($_GET['age']) ? $_GET['age'] : '');
 

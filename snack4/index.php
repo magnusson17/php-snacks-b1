@@ -9,6 +9,7 @@ for ($i = 0; $i < 15; $i++) {
     if ( !in_array($rand, $array) ) {
         $array[] = $rand;
     } 
+    // come faccio a riempire comunque tutto l'array???
 }
 
 var_dump($array);
