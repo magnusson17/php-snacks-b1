@@ -10,11 +10,6 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
  -->
 
 <?php
-$name = ( isset($_GET['name']) ? $_GET['name'] : '');
-$mail = ( isset($_GET['mail']) ? $_GET['mail'] : '');
-$age = ( isset($_GET['age']) ? $_GET['age'] : '');
-
-$risultato = '';
 
 ?>
 
@@ -26,32 +21,35 @@ $risultato = '';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
     </head>
-<body>
-
-    <form method="GET">
-        <input type="text" name="name" placeHolder="nome">
-        <input type="mail" name="mail" placeHolder="mail">
-        <input type="text" name="age" placeHolder="età">
-        <input type="submit" name="submit_btn">
-    </form>
-    
-    <p>
-        <?php
-        function accessoSiNo() {
-            if( strlen($name) < 3 || !gettype($age) == 'number') {
-                $risultato = 'Accesso negato';
-            } $risultato = 'Accesso negato';
-            return $risultato;
-        };
+    <body>
         
-        if ( isset($_GET['submit_btn']) ) {
-            accessoSiNo();
-        };
+        <form method="GET">
+            <input type="text" name="name" placeHolder="nome">
+            <input type="mail" name="mail" placeHolder="mail">
+            <input type="text" name="age" placeHolder="età">
+            <input type="submit" name="submit_btn">
+        </form>
+        
+        <p>
+            <?php
+            function accessoSiNo() {
+                $name = ( isset($_GET['name']) ? $_GET['name'] : '');
+                $mail = ( isset($_GET['mail']) ? $_GET['mail'] : '');
+                $age = ( isset($_GET['age']) ? $_GET['age'] : '');
+                $risultato = '';
+                if( strlen($name) < 3 || is_numeric($age) == false || strpos($mail, '.') == false || strpos($mail, '@') == false) {
+                    $risultato = 'Accesso negato';
+                } else {
+                    $risultato = 'Accesso consentito';
+                } 
+                return $risultato;
+            };
+        
+            if ( isset($_GET['submit_btn']) ) {
+                echo accessoSiNo();
+            };
+            ?>
+        </p>
 
-        echo accessoSiNo()
-        //var_dump(accessoSiNo());
-        ?>
-    </p>
-
-</body>
+    </body>
 </html>
