@@ -4,13 +4,32 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
 
 <?php
 $array = [];
-for ($i = 0; $i < 15; $i++) {
-    $rand = rand(1, 15);
-    if ( !in_array($rand, $array) ) {
-        $array[] = $rand;
-    } 
-    // come faccio a riempire comunque tutto l'array???
-}
+$finalArray = [];
 
-var_dump($array);
+$rangeRandNum = 100;
+$totElInFinalArray = 15;
+
+// 1) 1o tentativo
+
+// for ($i = 0; $i < 15; $i++) {
+//     $rand = rand(1, 15);
+//     if ( !in_array($rand, $array) ) {
+//         $array[] = $rand;
+//     } 
+// }
+// var_dump($array);
+
+// 2) 2o tentativo
+
+for ($i = 0; $i < $rangeRandNum; $i++) {
+    $array[] = $i;
+};
+shuffle($array);
+// var_dump($array);
+
+for ($q = 0; $q < $totElInFinalArray; $q++) {
+    $finalArray[] = $array[$q];
+};
+var_dump($finalArray);
+
 ?>
