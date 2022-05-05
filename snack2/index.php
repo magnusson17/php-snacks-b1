@@ -10,10 +10,19 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
  -->
 
 <?php
-$name = ( isset($_GET['name']) ? $_GET['name'] : '');
+// $name = ( isset($_GET['name']) ? $_GET['name'] : '');
+$name = 'gaddddd';
 $mail = ( isset($_GET['mail']) ? $_GET['mail'] : '');
 $age = ( isset($_GET['age']) ? $_GET['age'] : '');
+
 $risultato = '';
+function access() {
+    if( strlen($name) < 3 || !gettype($age) == 'number') {
+        $risultato = 'Accesso negato';
+    } $risultato = 'Accesso negato';
+    return $risultato;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +43,7 @@ $risultato = '';
     </form>
 
     <p>
-        <?php if( strlen($name) < 3 || !gettype($age) == 'number') {
-            echo 'Accesso negato';
-        } echo 'Accesso consentito'
+        <?php echo access()
         ?>
     </p>
 
