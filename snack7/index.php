@@ -39,11 +39,11 @@ var_dump($alunni);
 
 
 for ($i = 0; $i < count($alunni); $i++) {
-    $media = 0;
+    $somma = 0;
     for ($v = 0; $v < count($alunni[$i]['voti']); $v++) {
-        $media += round( ($alunni[$i]['voti'][$v] / 3), 2); 
+        $somma += $alunni[$i]['voti'][$v]; 
     };
-    // come faccio a mettere voti.length al posto di 3???
+    $media = round( ($somma / count($alunni[$i]['voti'])), 2 );
     echo $alunni[$i]['nome'] . " " . $alunni[$i]['cognome'] . ', media: ' . $media . "<br>";
 };
 ?>
