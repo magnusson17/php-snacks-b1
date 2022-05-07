@@ -47,9 +47,13 @@ $matches = [
 </head>
 <body>
     <p>
-        <?php for ($i = 0; $i < count($matches); $i++) {
+        <!-- <?php for ($i = 0; $i < count($matches); $i++) {
             echo $matches[$i]["team1"] . " - " . $matches[$i]["team2"] . " | " . $matches[$i]["point_team_1"] . " - " . $matches[$i]["point_team_2"] . "<br>";
-        } ?>
+        } ?> -->
+
+        <?php foreach ($matches as $match) {
+            echo $match["team1"] . " - " . $match["team2"] . " | " . $match["point_team_1"] . " - " . $match["point_team_2"] . "<br>";
+        }; ?>
     </p>
 </body>
 </html>
